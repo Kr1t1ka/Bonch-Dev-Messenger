@@ -8,17 +8,17 @@ import bonch.dev.school.R
 
 class SignUpActivity : AppCompatActivity() {
 
-    private lateinit var completeSignUpButton :Button
+    private lateinit var completeSignUpButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
-            setContentView(R.layout.sign_up_activity)
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_sign_up)
 
         completeSignUpButton = findViewById(R.id.complete_sign_up_button)
-
         completeSignUpButton.setOnClickListener {
-            val intent = Intent(this@SignUpActivity, MainAppActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, MainActivity().javaClass))
+            finish()
+
         }
     }
 }

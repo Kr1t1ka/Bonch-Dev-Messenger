@@ -1,39 +1,39 @@
 package bonch.dev.school.ui.fragments
 
-
-
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.fragment.app.Fragment
-import bonch.dev.school.R
-import bonch.dev.school.fragments.PasswordFragment
-import bonch.dev.school.ui.activities.MainAppActivity
 
+import bonch.dev.school.R
 
 class ProfileFragment : Fragment() {
 
-    private lateinit var changePasswordButton: Button
+    lateinit var changePasswordButton: Button
+    lateinit var passwordFragment: PasswordFragment
 
 
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+        val view: View = inflater.inflate(R.layout.profile_fragment, container, false)
         changePasswordButton = view.findViewById(R.id.change_password_button)
-        setListeners()
-        return view
-    }
-
-    private fun setListeners(){
+        passwordFragment = PasswordFragment()
         changePasswordButton.setOnClickListener {
-            (context as MainAppActivity).setDialogFragment()
+            fragmentManager?.let { it1 ->
+                passwordFragment.show(
+                    it1,
+                    "passwordFragment"
+                )
+            }
         }
+
+        return view
     }
 
 }

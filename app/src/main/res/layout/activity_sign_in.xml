@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:weightSum="100"
+    android:background="@color/back"
+
+    tools:context=".ui.activities.SignInActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="70"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="Меседжер.ы"
+            android:textSize="25dp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/text"
+            android:layout_margin="10sp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="30"
+        android:layout_margin="40dp">
+        <MultiAutoCompleteTextView
+            android:id="@+id/email_sign_in_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:textColorHint="@color/text"
+            android:textColor="@color/text"
+            android:textSize="20dp"
+            android:hint="Почта"
+            />
+        <MultiAutoCompleteTextView
+            android:id="@+id/password_sign_in_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/text"
+            android:textColor="@color/text"
+            android:enabled="true"
+            android:hint="Пароль"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            />
+
+        <Button
+            android:id="@+id/sign_in_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@color/front"
+            android:gravity="center"
+            android:hint="Войти"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text" />
+
+        <Button
+            android:id="@+id/sign_up_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/front"
+            android:gravity="center"
+            android:hint="Зарегистрироваться"
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+</LinearLayout>
