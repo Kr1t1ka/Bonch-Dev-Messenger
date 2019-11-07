@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import bonch.dev.school.R
 import bonch.dev.school.ui.moduls.Message
 import bonch.dev.school.ui.moduls.MessageAdapter
+import bonch.dev.school.ui.moduls.MessageLab
 import java.util.*
 
 class ChatFragmenst : Fragment() {
@@ -20,6 +21,8 @@ class ChatFragmenst : Fragment() {
     lateinit var sendMessageButton: ImageButton
 
     private lateinit var messageRecyclerView: RecyclerView
+
+    val messageList = MessageLab().messageList
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +35,8 @@ class ChatFragmenst : Fragment() {
         messageRecyclerView.layoutManager = LinearLayoutManager(container!!.context)
         var adapter = MessageAdapter()
         messageRecyclerView.adapter = adapter
-
+        var list_size: Int = messageList.size
+        messageRecyclerView.smoothScrollToPosition(list_size - 1)
         sendMessageButton = view.findViewById(R.id.send_message_button)
         sendMessageButton.setOnClickListener {
             val messageTextViev = view.findViewById<MultiAutoCompleteTextView>(R.id.message_et)

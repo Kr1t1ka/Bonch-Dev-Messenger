@@ -45,10 +45,9 @@ class  MessageLab() {
         messageList = mutableListOf()
         for(i in 0..50){
             val message = Message(i, "Привет, верни сотку",  Date(), true)
-            val message2 = Message(-i, "Привет, это фейковое сообщение его никто тебе не отправлял, ты никому не нужен",  Date(), false)
+            val message2 = Message(-i, "Не верну.",  Date(), false)
             messageList.add(message)
             messageList.add(message2)
         }
     }
-
 }
