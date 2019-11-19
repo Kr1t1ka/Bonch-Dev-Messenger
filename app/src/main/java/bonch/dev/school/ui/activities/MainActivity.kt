@@ -1,31 +1,53 @@
 package bonch.dev.school.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.FrameLayout
-import androidx.navigation.fragment.NavHostFragment
+import android.view.Menu
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import bonch.dev.school.R
-import bonch.dev.school.ui.fragments.ChatFragmenst
 import com.google.android.material.navigation.NavigationView
+
 
 class MainActivity : AppCompatActivity() {
 
-    val fm = supportFragmentManager
-    lateinit var fragmentContainer: FrameLayout
+
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+        val navController = findNavController(R.id.nav_host_fragment)
+        val navView: NavigationView = findViewById(R.id.nav_view)
 
-        val host: NavHostFragment=fm.findFragmentById(R.id.navFragment) as NavHostFragment? ?:return
-        val navController = host.navController
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.nav_chat, R.id.nav_profile
+            ), drawerLayout
+        )
 
-        val sideBar = findViewById<NavigationView>(R.id.nav_view)
-        sideBar?.setupWithNavController(navController)
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
 
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

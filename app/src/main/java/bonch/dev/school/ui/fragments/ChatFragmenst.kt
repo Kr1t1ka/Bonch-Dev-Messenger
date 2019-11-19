@@ -31,12 +31,13 @@ class ChatFragmenst : Fragment() {
     ): View? {
         val view: View = inflater.inflate(R.layout.chat_fragmenst_fragment, container, false)
 
+
         messageRecyclerView = view.findViewById(R.id.message_recycler_view)
         messageRecyclerView.layoutManager = LinearLayoutManager(container!!.context)
         var adapter = MessageAdapter()
         messageRecyclerView.adapter = adapter
         var list_size: Int = messageList.size
-        messageRecyclerView.smoothScrollToPosition(list_size - 1)
+        (messageRecyclerView.scrollToPosition(list_size - 1))
         sendMessageButton = view.findViewById(R.id.send_message_button)
         sendMessageButton.setOnClickListener {
             val messageTextViev = view.findViewById<MultiAutoCompleteTextView>(R.id.message_et)

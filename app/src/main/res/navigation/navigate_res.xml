@@ -2,24 +2,19 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigate_res"
-    app:startDestination="@id/chatFragmenst">
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_chat">
 
     <fragment
-        android:id="@+id/chatFragmenst"
+        android:id="@+id/nav_chat"
         android:name="bonch.dev.school.ui.fragments.ChatFragmenst"
-        android:label="chat_fragmenst_fragment"
-        tools:layout="@layout/chat_fragmenst_fragment" >
-        <action
-            android:id="@+id/action_chatFragmenst_to_profileFragment"
-            app:destination="@id/profileFragment" />
-        <action
-            android:id="@+id/action_chatFragmenst_to_profileFragment2"
-            app:destination="@id/profileFragment" />
-    </fragment>
+        android:label="Чат"
+        tools:layout="@layout/chat_fragmenst_fragment" />
+
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/nav_profile"
         android:name="bonch.dev.school.ui.fragments.ProfileFragment"
-        android:label="profile_fragment"
+        android:label="Профиль"
         tools:layout="@layout/profile_fragment" />
+
 </navigation>

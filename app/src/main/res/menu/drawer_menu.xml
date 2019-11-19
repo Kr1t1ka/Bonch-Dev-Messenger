@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/chatFragmenst"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Чат"/>
-    <item
-        android:id="@+id/profileFragment"
-        android:icon="@drawable/ic_launcher_foreground"
-        android:title="Профиль"/>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_chat"
+            android:icon="@mipmap/ic_launcher_round"
+            android:title="Чат" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@mipmap/ic_launcher_round"
+            android:title="Профиль" />
+
+    </group>
 </menu>
